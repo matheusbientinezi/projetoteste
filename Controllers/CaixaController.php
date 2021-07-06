@@ -1,15 +1,16 @@
 <?php
-	
-	namespace Controllers;
 
-	class CaixaController extends Controller
+namespace Controllers;
+
+class CaixaController extends Controller
+{
+
+	public function __construct()
 	{
-
-		public function __construct(){
-			$this->view = new \Views\MainView('caixa');
-		}
-		public function executar(){
-			$this->view->render(array('titulo'=>'Caixa'));
-		}
+		$this->view = new \Views\MainView('caixa');
 	}
-?>
+	public function executar()
+	{
+		$this->view->render(array('titulo' => 'Caixa'));
+	}
+}

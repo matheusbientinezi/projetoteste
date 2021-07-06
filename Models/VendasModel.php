@@ -30,6 +30,14 @@ class VendasModel
 
     }
 
+    public function insertVenda(){
+
+    }
+
+    public function insertVendaItens(){
+        
+    }
+
     public function insertTemp($id,$quantidade){
 
         $connect = new Conexao;
@@ -46,8 +54,15 @@ class VendasModel
 
         $connect = new Conexao;
 
-        $sql="SELECT tmp.id,p.nome_produto,p.codigo_barra,tmp.quantidade,p.valor_produto,round((tmp.quantidade * p.valor_produto),2) AS soma FROM temp_venda tmp
-            INNER JOIN produto p on tmp.id_produto = p.id
+        $sql="SELECT 
+                tmp.id,
+                p.nome_produto,
+                p.codigo_barra,
+                tmp.quantidade,
+                p.valor_produto,
+                round((tmp.quantidade * p.valor_produto),2) AS soma 
+            FROM temp_venda tmp
+            INNER JOIN produto p on tmp.id_produto = p.id;
             ";
 
         $conexao = $connect->connect();
@@ -55,6 +70,39 @@ class VendasModel
         $selecttemp = $conexao->prepare($sql);
         $selecttemp->execute();
         return $result = $selecttemp->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function selectDadosGeralTemp(){
+
+        $connect = new Conexao;
+
+        $sql="SELECT 
+                sum(tmp.quantidade) as quantidade,
+                round(SUM(tmp.quantidade * p.valor_produto),2) AS soma 
+            FROM temp_venda tmp
+            INNER JOIN produto p on tmp.id_produto = p.id;
+            ";
+
+        $conexao = $connect->connect();
+
+        $selectgeraltemp = $conexao->prepare($sql);
+        $selectgeraltemp->execute();
+        $result = $selectgeraltemp->fetchAll(\PDO::FETCH_ASSOC);   
+        return $result;
+    }
+
+    public function deleteTempVenda(){
+
+        $connect = new Conexao;
+
+        $sql="DELETE FROM temp_venda;
+            ALTER TABLE temp_venda auto_increment = 1;";
+
+        $conexao = $connect->connect();
+
+        $deletetemp = $conexao->prepare($sql);
+        $deletetemp->execute();
+
     }
 
 }

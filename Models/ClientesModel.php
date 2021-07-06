@@ -2,14 +2,16 @@
 
 namespace Models;
 
-use Banco\Conexao; 
-class ClientesModel
-{  
+use Banco\Conexao;
 
-    public function getAll(){  
+class ClientesModel
+{
+
+    public function getAll()
+    {
 
         $connect = new Conexao;
-        
+
         $sql = "SELECT * FROM cliente";
 
         $conexao = $connect->connect();
@@ -17,10 +19,10 @@ class ClientesModel
         $clientes = $conexao->prepare($sql);
         $clientes->execute();
         return $result = $clientes->fetchAll(\PDO::FETCH_ASSOC);
-
     }
 
-    public function insertCliente($nome,$sobrenome,$celular,$cpf){
+    public function insertCliente($nome, $sobrenome, $celular, $cpf)
+    {
 
         $connect = new Conexao;
 
@@ -35,7 +37,4 @@ class ClientesModel
         $cliente = $conexao->prepare($sql);
         $cliente->execute();
     }
-
 }
-
-?>

@@ -7,4 +7,3 @@
 
 	$app = new Application();
 	$app->executar();
-?>

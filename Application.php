@@ -10,13 +10,10 @@
 
 			$url = ucfirst($url);
 			$url.="Controller";
-			if(file_exists('Controllers/'.$url.'.php')){
-				$className = 'Controllers\\'.$url;
-				$controler = new $className;
-				$controler->executar();
-			}else{
-				die("Não existe esse controlador!");
-			}
+			$className = 'Controllers\\'.$url;
+			$controler = new $className;
+			$controler->executar();
+			
 		}
 	}
 	

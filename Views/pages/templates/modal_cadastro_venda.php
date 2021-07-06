@@ -8,29 +8,29 @@
         </button>
       </div>
       <div class="modal-body">
-      <form method = "POST">
-      <div class="form-group">
-        <label for="nome_produto">Inserir desconto(%)</label>
-        <input type="text" class="form-control" name="nome_produto" id="nome_produto" placeholder="Desconto em porcentagem">
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="codigo_barra">Total</label>
-          <input type="text" readonly class="form-control" name="total" id="total" placeholder="Total">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="valor_venda">Qtd Itens</label>
-          <input type="text" readonly class="form-control" name="quantidade_itens" id="quantidade_itens" placeholder="Qtd Itens">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="nome_produto">Cliente</label>
-        <input type="text" class="form-control" name="cliente" id="cliente" placeholder="Inserir cliente">
-      </div>
-      <div class="form-group">
-        <label for="nome_produto">Total Pago</label>
-        <input type="text" class="form-control" name="total_pago" id="total_pago" placeholder="Valor pago pelo cliente">
-      </div>
+        <form method="POST">
+          <div class="form-group">
+            <label for="nome_produto">Inserir desconto(%)</label>
+            <input type="text" class="form-control" name="desconto" id="desconto" placeholder="Desconto em porcentagem">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="codigo_barra">Total</label>
+              <input type="text" readonly class="form-control" name="total" id="total" placeholder="Total">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="valor_venda">Qtd Itens</label>
+              <input type="text" readonly class="form-control" name="quantidade_itens" id="quantidade_itens" placeholder="Qtd Itens">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="nome_produto">Cliente</label>
+            <input type="text" class="form-control" name="cliente" id="cliente" placeholder="Inserir cliente">
+          </div>
+          <div class="form-group">
+            <label for="nome_produto">Total Pago</label>
+            <input type="text" class="form-control" name="total_pago" id="total_pago" placeholder="Valor pago pelo cliente">
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -43,16 +43,15 @@
 
 <?php
 
-if(isset($_POST['cadastrar_produto'])){
+if (isset($_POST['cadastrar_venda'])) {
 
-  $nome_produto = $_POST['nome_produto'];
-  $codigo_barra = $_POST['codigo_barra'];
-  $valor_venda = $_POST['valor_venda'];
-  $estoque = $_POST['estoque'];
+  $desconto = $_POST['desconto'];
+  $quantidade_itens = $_POST['quantidade_itens'];
+  $cliente = $_POST['cliente'];
+  $total_pago = $_POST['total_pago'];
 
-  $controller = new Controllers\ProdutosController;
-  $cadastrar = $controller->cadastrarProduto($nome_produto,$codigo_barra,$valor_venda,$estoque);
-  
+  $vendacontroller = new Controllers\ProdutosController;
+  $cadastrar = $vendacontroller->cadastrarProduto($desconto, $quantidade_itens, $cliente, $total_pago);
 }
 
 ?>

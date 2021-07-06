@@ -1,14 +1,12 @@
 <?php
 
-	namespace Controllers;
+namespace Controllers;
 
-	class Controller
+class Controller
+{
+	private $view;
+	private $model;
+	public function executar()
 	{
-		private $view;
-		private $model;
-		public function executar(){}
-
-
 	}
-
-?>
+}

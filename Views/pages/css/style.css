@@ -114,6 +114,7 @@ nav a:hover{
 }
 
 footer{
+	height: 30px;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
@@ -136,7 +137,7 @@ footer{
 	color: #4b4b4b;
 }
 
-#deletebutton{
+.deletebutton{
 	margin-left: 2px;
 	border-radius: 20px !important;
 	float: right;
