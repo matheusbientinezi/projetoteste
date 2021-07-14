@@ -138,5 +138,5 @@
 	</div>
 </div>
 <?php
-include 'templates/modal_cadastro_venda.php';
+include 'modals/modal_cadastro_venda.php';
 ?>

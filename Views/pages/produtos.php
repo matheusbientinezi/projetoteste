@@ -22,7 +22,7 @@
 			</thead>
 
 			<?php
-			include 'templates/modal_cadastro_produto.php';
+			include 'modals/modal_cadastro_produto.php';
 			$listaprodutos = new \Controllers\ProdutosController;
 			$printarlista = $listaprodutos->listarprodutos();
 			foreach ($printarlista as $produtos) {

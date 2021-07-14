@@ -20,7 +20,7 @@
 			</thead>
 
 			<?php
-			include 'templates/modal_cadastro_cliente.php';
+			include 'modals/modal_cadastro_cliente.php';
 			$listacliente = new \Controllers\ClientesController;
 			$printarlista = $listacliente->listarClientes();
 			foreach ($printarlista as $clientes) {
